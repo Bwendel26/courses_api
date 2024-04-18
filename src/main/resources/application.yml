@@ -5,24 +5,20 @@ spring:
   application:
     name: CoursesAPI
   datasource:
-    url: jdbc:h2:mem:courses_api
+    url: jdbc:mysql://localhost:3306/courses_api?useSSL=false&serverTimezone=UTC
     username: root
-    password: 1234
-    driverClassName: org.h2.Driver
-    h2:
-      console:
-        enabled: true
-#        path: /h2
+    password: root
+    driverClassName: com.mysql.cj.jdbc.Driver
     # Flyway config:
     flyway:
       locations: classpath:db/migration
     # Spring Security:
-#  security:
-#    user:
-#      name: root
-#      password: 1234
+  security:
+    user:
+      name: root
+      password: 1234
   jpa:
-    database-platform: org.hibernate.dialect.H2Dialect
+    database-platform: org.hibernate.dialect.MySQL8Dialect
 
     hibernate:
       ddl-auto: update
