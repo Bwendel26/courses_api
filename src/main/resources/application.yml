@@ -13,10 +13,10 @@ spring:
     flyway:
       locations: classpath:db/migration
     # Spring Security:
-#  security:
-#    user:
-#      name: root
-#      password: 1234
+  security:
+    user:
+      name: root
+      password: 1234
   jpa:
     database-platform: org.hibernate.dialect.MySQL8Dialect
 
