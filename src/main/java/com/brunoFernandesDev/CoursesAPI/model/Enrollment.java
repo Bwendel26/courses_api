@@ -12,14 +12,16 @@ public class Enrollment {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToMany
-    @JoinColumn(name = "user_id'", nullable = false)
+    @ManyToOne
+    @JoinColumn(name = "user_id", nullable = false)
     private User user;
 
-    @Column(name = "enrrolment_date", nullable = false)
-    private Date enrrolmentDate;
+    @ManyToOne
+    @JoinColumn(name = "course_id", nullable = false)
+    private Course course;
 
-    public Enrollment () {}
+    @Column(name = "enrollment_date", nullable = false)
+    private Date enrollmentDate;
 
     public Long getId() {
         return id;
@@ -33,11 +35,19 @@ public class Enrollment {
         this.user = user;
     }
 
-    public Date getEnrrolmentDate() {
-        return enrrolmentDate;
+    public Course getCourse() {
+        return course;
     }
 
-    public void setEnrrolmentDate(Date enrrolmentDate) {
-        this.enrrolmentDate = enrrolmentDate;
+    public void setCourse(Course course) {
+        this.course = course;
+    }
+
+    public Date getEnrollmentDate() {
+        return enrollmentDate;
+    }
+
+    public void setEnrollmentDate(Date enrollmentDate) {
+        this.enrollmentDate = enrollmentDate;
     }
 }

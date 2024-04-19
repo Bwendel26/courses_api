@@ -18,7 +18,5 @@ spring:
       name: root
       password: 1234
   jpa:
-    database-platform: org.hibernate.dialect.MySQL8Dialect
-
     hibernate:
       ddl-auto: update
