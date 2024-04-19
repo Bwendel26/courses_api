@@ -2,7 +2,7 @@ CREATE TABLE IF NOT EXISTS courses (
     course_id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(255) NOT NULL,
     code VARCHAR(255) NOT NULL UNIQUE,
-    instructor VARCHAR(255) NOT NULL,
+    instructor INT NOT NULL,
     description TEXT NOT NULL,
     status VARCHAR(20) NOT NULL,
     creation_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
