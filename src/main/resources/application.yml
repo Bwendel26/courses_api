@@ -13,10 +13,18 @@ spring:
     flyway:
       locations: classpath:db/migration
     # Spring Security:
-  security:
-    user:
-      name: root
-      password: 1234
+#  security:
+#    user:
+#      name: root
+#      password: 1234
   jpa:
     hibernate:
       ddl-auto: update
+
+logging:
+  level:
+    org:
+      springframework:
+        web: DEBUG
+      hibernate: ERROR
+
