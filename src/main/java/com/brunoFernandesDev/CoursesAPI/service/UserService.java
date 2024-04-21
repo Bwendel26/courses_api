@@ -8,6 +8,7 @@ import com.brunoFernandesDev.CoursesAPI.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.logging.Logger;
 
 @Service
@@ -28,7 +29,7 @@ public class UserService {
     public UserVO createUser(CreateUserDTO user) {
         logger.info("Creating a new user...");
         var entity = DozerMapper.parseObject(user, User.class);
-
+        entity.setCreationDate(new Date());
         return DozerMapper.parseObject(repository.save(entity), UserVO.class);
     }
 

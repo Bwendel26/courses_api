@@ -20,9 +20,8 @@ public class Course {
     @Column(nullable = false, unique = true, length = 10)
     private String code;
 
-    @ManyToOne
-    @JoinColumn(name = "user_id", nullable = false)
-    private User instructor;
+    @JoinColumn(name = "user_id", nullable = false, columnDefinition = "INT")
+    private Long instructor;
 
     @Column(nullable = false)
     private String description;
@@ -58,11 +57,11 @@ public class Course {
         this.code = code;
     }
 
-    public User getInstructor() {
+    public Long getInstructor() {
         return instructor;
     }
 
-    public void setInstructor(User instructor) {
+    public void setInstructor(Long instructor) {
         this.instructor = instructor;
     }
 

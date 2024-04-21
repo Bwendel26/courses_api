@@ -6,7 +6,7 @@ public class CreateCourseDTO {
     private Long course_id;
     private String name;
     private String code;
-    private String  instructor;
+    private Long  instructor;
     private String description;
 
     public CreateCourseDTO() {}
@@ -31,11 +31,11 @@ public class CreateCourseDTO {
         this.code = code;
     }
 
-    public String getInstructor() {
+    public Long getInstructor() {
         return instructor;
     }
 
-    public void setInstructor(String instructor) {
+    public void setInstructor(Long instructor) {
         this.instructor = instructor;
     }
 
