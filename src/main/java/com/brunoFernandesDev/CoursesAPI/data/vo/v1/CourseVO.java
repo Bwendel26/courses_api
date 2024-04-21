@@ -15,7 +15,7 @@ public class CourseVO implements Serializable {
     private Long course_id;
     private String name;
     private String code;
-    private User instructor;
+    private Long instructor;
     private String description;
     private CourseStatus status;
     private Date creationDate;
@@ -43,11 +43,11 @@ public class CourseVO implements Serializable {
         this.code = code;
     }
 
-    public User getInstructor() {
+    public Long getInstructor() {
         return instructor;
     }
 
-    public void setInstructor(User instructor) {
+    public void setInstructor(Long instructor) {
         this.instructor = instructor;
     }
 

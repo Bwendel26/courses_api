@@ -4,7 +4,6 @@ import com.brunoFernandesDev.CoursesAPI.data.dto.CreateCourseDTO;
 import com.brunoFernandesDev.CoursesAPI.data.vo.v1.CourseVO;
 import com.brunoFernandesDev.CoursesAPI.mapper.DozerMapper;
 import com.brunoFernandesDev.CoursesAPI.model.Course;
-import com.brunoFernandesDev.CoursesAPI.model.User;
 import com.brunoFernandesDev.CoursesAPI.model.enums.CourseStatus;
 import com.brunoFernandesDev.CoursesAPI.repository.CourseRepository;
 import com.brunoFernandesDev.CoursesAPI.repository.UserRepository;
@@ -42,8 +41,6 @@ public class CourseService {
     public CourseVO createCourse(CreateCourseDTO courseDTO) {
 
         logger.info("Creating a new course...");
-        User userEntity = userRepository.findByUsername(courseDTO.getInstructor());
-
         var entity = DozerMapper.parseObject(courseDTO, Course.class);
         entity.setStatus(CourseStatus.ACTIVE);
         entity.setCreationDate(new Date());
