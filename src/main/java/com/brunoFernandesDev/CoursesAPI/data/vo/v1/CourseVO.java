@@ -1,42 +1,27 @@
-package com.brunoFernandesDev.CoursesAPI.model;
+package com.brunoFernandesDev.CoursesAPI.data.vo.v1;
 
+import com.brunoFernandesDev.CoursesAPI.model.User;
 import com.brunoFernandesDev.CoursesAPI.model.enums.CourseStatus;
 import jakarta.persistence.*;
 
+import java.io.Serializable;
 import java.util.Date;
 
-@Entity
-@Table(name = "courses")
-public class Course {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "course_id", columnDefinition = "INT")
+public class CourseVO implements Serializable {
+
+    private static final long serialVersionUID = 1L;
+
     private Long course_id;
-
-    @Column(nullable = false)
     private String name;
-
-    @Column(nullable = false, unique = true, length = 10)
     private String code;
-
-    @ManyToOne
-    @JoinColumn(name = "user_id", nullable = false)
     private User instructor;
-
-    @Column(nullable = false)
     private String description;
-
-    @Enumerated(EnumType.STRING)
     private CourseStatus status;
-
-    @Column(name = "creation_date")
     private Date creationDate;
-
-    @Column(name = "inactivation_date")
     private Date inactivationDate;
 
-    public Course() {}
+    public CourseVO() {}
 
     public Long getCourse_id() {
         return course_id;
