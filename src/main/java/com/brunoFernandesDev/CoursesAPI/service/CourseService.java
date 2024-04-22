@@ -1,6 +1,7 @@
 package com.brunoFernandesDev.CoursesAPI.service;
 
 import com.brunoFernandesDev.CoursesAPI.data.dto.CreateCourseDTO;
+import com.brunoFernandesDev.CoursesAPI.data.dto.CreateEnrollmentDTO;
 import com.brunoFernandesDev.CoursesAPI.data.vo.v1.CourseVO;
 import com.brunoFernandesDev.CoursesAPI.mapper.DozerMapper;
 import com.brunoFernandesDev.CoursesAPI.model.Course;
@@ -56,5 +57,17 @@ public class CourseService {
         course.setInactivationDate(new Date());
 
         return DozerMapper.parseObject(course, CourseVO.class);
+    }
+
+    public boolean isCourseActive(CourseVO courseVO) {
+
+        Course entity = repository.findById(courseVO.getCourse_id()).orElseThrow(() -> new NullPointerException());
+        CourseStatus status = entity.getStatus();
+        if(status.equals(CourseStatus.ACTIVE)) {
+            return true;
+        }
+        else {
+            return false;
+        }
     }
 }
