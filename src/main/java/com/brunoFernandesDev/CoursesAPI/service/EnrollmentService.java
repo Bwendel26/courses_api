@@ -38,7 +38,7 @@ public class EnrollmentService {
     public EnrollmentVO createEnrollment(CreateEnrollmentDTO enrollmentDTO) throws Exception {
 
         logger.info("Creating a new enrollment...");
-        boolean isEnrolled = repository.existsByUserIdAndCourseId(enrollmentDTO.getUserId(), enrollmentDTO.getCourseId());
+        boolean isEnrolled = repository.existsByUserAndCourse(enrollmentDTO.getUserId(), enrollmentDTO.getCourseId());
         if (isEnrolled) {
             throw new Exception();
         }
@@ -63,6 +63,6 @@ public class EnrollmentService {
         var userEntity = DozerMapper.parseObject(userId, User.class);
         var courseEntity = DozerMapper.parseObject(courseId, Course.class);
 
-        return repository.existsByUserIdAndCourseId(userEntity, courseEntity);
+        return repository.existsByUserAndCourse(userEntity, courseEntity);
     }
 }

@@ -1,5 +1,8 @@
 package com.brunoFernandesDev.CoursesAPI;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class EmailSender {
     public static void send(String recipientEmail, String subject, String body) {
 

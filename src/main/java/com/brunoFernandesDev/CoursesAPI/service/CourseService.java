@@ -5,6 +5,7 @@ import com.brunoFernandesDev.CoursesAPI.data.dto.CreateEnrollmentDTO;
 import com.brunoFernandesDev.CoursesAPI.data.vo.v1.CourseVO;
 import com.brunoFernandesDev.CoursesAPI.mapper.DozerMapper;
 import com.brunoFernandesDev.CoursesAPI.model.Course;
+import com.brunoFernandesDev.CoursesAPI.model.CourseReview;
 import com.brunoFernandesDev.CoursesAPI.model.enums.CourseStatus;
 import com.brunoFernandesDev.CoursesAPI.repository.CourseRepository;
 import com.brunoFernandesDev.CoursesAPI.repository.UserRepository;
@@ -69,5 +70,19 @@ public class CourseService {
         else {
             return false;
         }
+    }
+
+    public void addCourseReview(Long courseId, Long userId, int rating, String feedback) {
+
+    }
+
+    public String getInstructorEmail(Long courseId) {
+
+        return "example@example.com";
+    }
+
+    public List<CourseReview> getCourseReviews(Long courseId) {
+
+        return List.of();
     }
 }
